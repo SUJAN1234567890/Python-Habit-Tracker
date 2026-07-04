@@ -1,6 +1,6 @@
 # 📝 My Python Habit Tracker
 
-This is a simple web app I built to track my daily habits. I created this project to learn how to connect Python to a real database and how to build a user interface.
+This is a simple web app I built to track daily habits. I created this project to learn how to connect Python to a real database and how to build a user interface.
 
 ## 🛠️ What I Used
 * **Python** - To write the core logic.
