@@ -47,7 +47,18 @@ def get_completed_habits_by_date(date) :
     connection.close()
     return habits_by_date
 
-# add_habit("Read 10 Page")
-print(get_all_habits())
-# log_habit_completion(1, "2023-10-01")
-print(get_completed_habits_by_date("2023-10-01"))
+def get_habit_completion_count(habit_id) :
+    connection = sqlite3.connect('habits.db')
+    cursor = connection.cursor()
+    cursor.execute("SELECT COUNT(*) FROM completion WHERE habit_id = (?)", habit_id)
+    count = cursor.fetchone()[0]
+    connection.close()
+    return count   
+
+def get_today(date) :
+    connection = sqlite3.connect('habits.db')
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM completion WHERE date = (?)", (date,))
+    today_habits = cursor.fetchall()
+    connection.close()
+    return today_habits    
